@@ -71,26 +71,26 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
     public var navigationBarTranslucent = true
     
     /// UINavigationBar Text Color for MediaBrowser
-    public var navigationBarTextColor = UIColor.white
     
+    public var navigationBarTextColor = UIColor.black
     /// UINavigationBar Background Color for MediaBrowser
-    public var navigationBarBackgroundColor = UIColor.black
     
+    public var navigationBarBackgroundColor = UIColor.white
     /// UINavigationBar Tint Color for MediaBrowser
-    public var navigationBarTintColor = UIColor.black.withAlphaComponent(0.5)
     
+    public var navigationBarTintColor = UIColor.white.withAlphaComponent(0.5)
     /// UIStatusBarStyle for MediaBrowser
     public var statusBarStyle: UIStatusBarStyle = .lightContent
     
     /// UIToolBar Text Color for MediaBrowser
-    public var toolbarTextColor = UIColor.white
     
+    public var toolbarTextColor = UIColor.black
     /// UIToolBar Tint Color for MediaBrowser
-    public var toolbarBarTintColor = UIColor.black.withAlphaComponent(0.5)
     
+    public var toolbarBarTintColor = UIColor.white.withAlphaComponent(0.5)
     /// UIToolBar Tint Background for MediaBrowser
-    public var toolbarBackgroundColor = UIColor.black
     
+    public var toolbarBackgroundColor = UIColor.white
     /// MediaBrowser has belonged to viewcontroller
     public var hasBelongedToViewController = false
     
@@ -171,7 +171,7 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
     public var toolbarAlpha = CGFloat(1)
     
     /// Loading Indicator Inner Ring Color
-    public var loadingIndicatorInnerRingColor = UIColor.white
+    public var loadingIndicatorInnerRingColor = UIColor.black
     
     /// Loading Indicator Outer Ring Color
     public var loadingIndicatorOuterRingColor = UIColor.gray
@@ -186,7 +186,7 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
     public var loadingIndicatorFont = UIFont.systemFont(ofSize: 10)
     
     /// Loading Indicator Font Color
-    public var loadingIndicatorFontColor = UIColor.white
+    public var loadingIndicatorFontColor = UIColor.black
     
     /// Loading Indicator Show or hide text
     public var loadingIndicatorShouldShowValueText = true
@@ -359,7 +359,7 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
         pagingScrollView.delegate = self
         pagingScrollView.showsHorizontalScrollIndicator = false
         pagingScrollView.showsVerticalScrollIndicator = false
-        pagingScrollView.backgroundColor = UIColor.black
+        pagingScrollView.backgroundColor = UIColor.white
         pagingScrollView.contentSize = contentSizeForPagingScrollView()
         view.addSubview(pagingScrollView)
         
@@ -756,7 +756,7 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
             navBar.barTintColor = navigationBarTintColor
             navBar.shadowImage = nil
             navBar.isTranslucent = navigationBarTranslucent
-            navBar.barStyle = .black
+            navBar.barStyle = .default
         }
     }
 

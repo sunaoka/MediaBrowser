@@ -69,11 +69,11 @@ public class MediaCaptionView: UIToolbar {
         isUserInteractionEnabled = false
         tintColor = nil
         barTintColor = nil
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.white
 //        isOpaque = false
 //        isTranslucent = true
 //        clipsToBounds = true
-        barStyle = .blackTranslucent
+        barStyle = .default
 
         autoresizingMask =
             [.flexibleWidth, .flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin]
@@ -89,7 +89,7 @@ public class MediaCaptionView: UIToolbar {
         label.adjustsFontSizeToFitWidth = true
 
         label.numberOfLines = 0
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black
         label.font = UIFont.systemFont(ofSize: 17.0)
         
         if let p = media {

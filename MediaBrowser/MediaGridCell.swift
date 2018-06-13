@@ -27,7 +27,7 @@ class MediaGridCell: UICollectionViewCell {
         super.init(frame: frame)
         
         // Grey background
-        backgroundColor = UIColor(white: 0.12, alpha: 1.0)
+        backgroundColor = UIColor.white
         
         // Image
         imageView.frame = self.bounds
