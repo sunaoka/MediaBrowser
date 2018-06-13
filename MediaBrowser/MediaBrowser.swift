@@ -215,6 +215,9 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
         }
     }
 
+    /// Title automatically
+    public var automaticallyTitle = true
+
     /**
      Placeholder image
      - image: placeholder image
@@ -1524,39 +1527,41 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
     func updateNavigation() {
         // Title
         let medias = numberOfMedias
-        if let gc = gridController {
-            if gc.selectionMode {
-                self.title = NSLocalizedString("Select Photos", comment: "")
-                if let ab = actionButton {
-                    // only show Action button on top right if this place is empty (no Done button there)
-                    if nil == self.navigationItem.rightBarButtonItem {
-                    	self.navigationItem.rightBarButtonItem = ab
+        if self.automaticallyTitle {
+            if let gc = gridController {
+                if gc.selectionMode {
+                    self.title = NSLocalizedString("Select Photos", comment: "")
+                    if let ab = actionButton {
+                        // only show Action button on top right if this place is empty (no Done button there)
+                        if nil == self.navigationItem.rightBarButtonItem {
+                            self.navigationItem.rightBarButtonItem = ab
+                        }
                     }
+                } else {
+                    let photosText: String
+
+                    if 1 == medias {
+                        photosText = NSLocalizedString("photo", comment: "Used in the context: '1 photo'")
+                    } else {
+                        photosText = NSLocalizedString("photos", comment: "Used in the context: '3 photos'")
+                    }
+
+                    title = "\(medias) \(photosText)"
+                }
+            } else if medias > 1 {
+                if let d = delegate {
+                    title = d.title(for: self, at: currentPageIndex)
+                }
+
+                if nil == title {
+                    let str = NSLocalizedString("of", comment: "Used in the context: 'Showing 1 of 3 items'")
+                    title = "\(currentPageIndex + 1) \(str) \(numberOfMedias)"
                 }
             } else {
-                let photosText: String
-                
-                if 1 == medias {
-                    photosText = NSLocalizedString("photo", comment: "Used in the context: '1 photo'")
-                } else {
-                    photosText = NSLocalizedString("photos", comment: "Used in the context: '3 photos'")
-                }
-                
-                title = "\(medias) \(photosText)"
+                title = nil
             }
-        } else if medias > 1 {
-            if let d = delegate {
-                title = d.title(for: self, at: currentPageIndex)
-            }
-            
-            if nil == title {
-                let str = NSLocalizedString("of", comment: "Used in the context: 'Showing 1 of 3 items'")
-                title = "\(currentPageIndex + 1) \(str) \(numberOfMedias)"
-            }
-        } else {
-            title = nil
         }
-        
+
         // Buttons
         if let prev = previousButton {
             prev.isEnabled = (currentPageIndex > 0)
