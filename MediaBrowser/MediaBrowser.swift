@@ -1674,7 +1674,7 @@ public class MediaBrowser: UIViewController, UIScrollViewDelegate, UIActionSheet
 
     func playVideo(videoURL: URL, atPhotoIndex index: Int) {
         // Setup player
-        currentVideoPlayerViewController = MPMoviePlayerViewController(contentURL: videoURL as URL!)
+        currentVideoPlayerViewController = MPMoviePlayerViewController(contentURL: videoURL as URL?)
         
         if let player = currentVideoPlayerViewController {
             player.moviePlayer.prepareToPlay()
