@@ -30,6 +30,7 @@ class MediaGridViewController: UICollectionViewController, UICollectionViewDeleg
             cv.register(MediaGridCell.self, forCellWithReuseIdentifier: "MediaGridCell")
             cv.alwaysBounceVertical = true
             cv.backgroundColor = UIColor.white
+            cv.frame.origin.y = 44.0 + 20.0 // Toolbar height + padding
         }
     }
     
